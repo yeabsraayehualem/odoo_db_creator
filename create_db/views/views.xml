@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_db_creator_wizard" model="ir.ui.view">
+        <field name="name">db.creator.wizard.form</field>
+        <field name="model">db.creator.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create New Database">
+                <group>
+                    <field name="db_name"/>
+                    <field name="admin_email"/>
+                    <field name="admin_password"/>
+                </group>
+                <footer>
+                    <button name="create_database" type="object" string="Create" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_db_creator_wizard" model="ir.actions.act_window">
+        <field name="name">Database Creator</field>
+        <field name="res_model">db.creator.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+ <menuitem id="menu_db_creator_root" name="Database Creator" sequence="10" />
+
+=    <menuitem id="menu_db_creator" 
+              name="Create Database" 
+              parent="menu_db_creator_root" 
+              action="action_db_creator_wizard" 
+              sequence="10" />
+
+</odoo>
